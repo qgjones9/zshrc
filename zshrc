@@ -31,13 +31,13 @@ setup_terraform_autocomplete() {
 
   # Check if Terraform was found
   if [ -n "$TERRAFORM_PATH" ]; then
-    echo "Terraform found at: $TERRAFORM_PATH. Setting up autocompletion."
+    # echo "Terraform found at: $TERRAFORM_PATH. Setting up autocompletion."
 
     # Set up autocompletion using the dynamically found path
     complete -o nospace -C "$TERRAFORM_PATH" terraform
-    echo "Terraform autocompletion set up."
+    # echo "Terraform autocompletion set up."
   else
-    echo "Terraform is not installed or not found in PATH. Skipping autocompletion setup."
+    # echo "Terraform is not installed or not found in PATH. Skipping autocompletion setup."
   fi
 }
 
@@ -50,30 +50,30 @@ setup_docker_autocomplete() {
 
   # Check if the operating system is zsh (where these commands are relevant)
   if [[ "$SHELL" == *zsh* ]]; then
-    echo "Detected zsh. Setting up Docker autocompletion."
+    # echo "Detected zsh. Setting up Docker autocompletion."
 
     # Define the Docker completions directory
     DOCKER_COMPLETIONS_DIR="$HOME/.docker/completions"
 
     # Add the Docker completions directory to fpath if it's not already there
     if [[ ":$fpath:" != *":$DOCKER_COMPLETIONS_DIR:"* ]]; then
-      echo "Adding '$DOCKER_COMPLETIONS_DIR' to fpath."
+      # echo "Adding '$DOCKER_COMPLETIONS_DIR' to fpath."
       fpath=("$DOCKER_COMPLETIONS_DIR" $fpath)
     else
-      echo "'$DOCKER_COMPLETIONS_DIR' is already in fpath."
+      # echo "'$DOCKER_COMPLETIONS_DIR' is already in fpath."
     fi
 
     # Autoload and initialize the completion system
     if type autoload >/dev/null 2>&1 && type compinit >/dev/null 2>&1; then
       autoload -Uz compinit
       compinit
-      echo "Docker autocompletion set up."
+      # echo "Docker autocompletion set up."
     else
-      echo "Warning: 'autoload' or 'compinit' command not found. Ensure zsh is properly configured."
+      # echo "Warning: 'autoload' or 'compinit' command not found. Ensure zsh is properly configured."
     fi
 
   else
-    echo "Current shell is not zsh. Skipping Docker autocompletion setup."
+    # echo "Current shell is not zsh. Skipping Docker autocompletion setup."
   fi
 }
 
@@ -86,21 +86,21 @@ setup_angular_autocomplete() {
 
   # Check if the current shell is zsh
   if [[ "$SHELL" == *zsh* ]]; then
-    echo "Detected zsh. Setting up Angular CLI autocompletion."
+    # echo "Detected zsh. Setting up Angular CLI autocompletion."
 
     # Check if the 'ng' command is available (indicating Angular CLI is likely installed)
     if command -v ng >/dev/null 2>&1; then
-      echo "Angular CLI ('ng') found. Attempting to set up autocompletion."
+      # echo "Angular CLI ('ng') found. Attempting to set up autocompletion."
 
       # Execute the ng completion script and source its output
-      eval "$(ng completion script zsh)"
-      echo "Angular CLI autocompletion set up."
+      source <(ng completion script)
+      # echo "Angular CLI autocompletion set up."
     else
-      echo "Angular CLI ('ng') not found. Skipping autocompletion setup."
+      # echo "Angular CLI ('ng') not found. Skipping autocompletion setup."
     fi
 
   else
-    echo "Current shell is not zsh. Skipping Angular CLI autocompletion setup."
+    # echo "Current shell is not zsh. Skipping Angular CLI autocompletion setup."
   fi
 }
 
@@ -108,23 +108,23 @@ setup_heroku_autocomplete(){
   # HEROKU
   # Script to conditionally set the HEROKU_AC_ZSH_SETUP_PATH environment variable
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    echo "Operating system is macOS."
+    # echo "Operating system is macOS."
 
     # Define the Heroku CLI zsh setup path using the user's home directory
     HEROKU_AC_ZSH_SETUP_PATH="$HOME/Library/Caches/heroku/autocomplete/zsh_setup"
 
     # Check if the heroku zsh setup file exists
     if [ -f "$HEROKU_AC_ZSH_SETUP_PATH" ]; then
-      echo "Heroku CLI zsh setup file found at: $HEROKU_AC_ZSH_SETUP_PATH"
+      # echo "Heroku CLI zsh setup file found at: $HEROKU_AC_ZSH_SETUP_PATH"
       source "$HEROKU_AC_ZSH_SETUP_PATH"
-      echo "HEROKU_AC_ZSH_SETUP_PATH environment variable set and zsh setup sourced."
+      # echo "HEROKU_AC_ZSH_SETUP_PATH environment variable set and zsh setup sourced."
     else
-      echo "Heroku CLI zsh setup file not found at: $HEROKU_AC_ZSH_SETUP_PATH"
-      echo "Skipping environment variable setup."
+      # echo "Heroku CLI zsh setup file not found at: $HEROKU_AC_ZSH_SETUP_PATH"
+      # echo "Skipping environment variable setup."
     fi
 
   else
-    echo "Operating system is not macOS. Skipping Heroku CLI setup."
+    # echo "Operating system is not macOS. Skipping Heroku CLI setup."
   fi
 }
 
