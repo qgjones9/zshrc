@@ -51,6 +51,11 @@ The `setup.sh` script performs the following actions:
 * If the `env` directory exists, it iterates through all regular files within this directory.
 * For each file found, it sources the file using the `source` command. This will load the environment variables defined in those files into your current shell session.
 
+##  Demo:
+
+[![asciicast](https://asciinema.org/a/y3EDXM63jcwTu2Zc4WOr1pAf4.svg)](https://asciinema.org/a/y3EDXM63jcwTu2Zc4WOr1pAf4)
+
+
 ## Usage Notes
 
 * **Backup your existing `.zshrc`:** Before running the script, it's always a good idea to back up your current `~/.zshrc` file in case you want to revert to it later. You can do this with a command like `cp ~/.zshrc ~/.zshrc.backup`.
