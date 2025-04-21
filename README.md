@@ -53,7 +53,7 @@ The `setup.sh` script performs the following actions:
 
 ##  Demo:
 
-[![asciicast](https://asciinema.org/a/y3EDXM63jcwTu2Zc4WOr1pAf4.svg)](https://asciinema.org/a/y3EDXM63jcwTu2Zc4WOr1pAf4)
+![animated demo](assets/gifs/terminal.gif)
 
 
 ## Usage Notes
