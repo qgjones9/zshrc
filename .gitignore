@@ -1,2 +1,7 @@
+# sensitive information
 tokens*
 secrets*
+
+# asciinema recording
+*.cast
+
