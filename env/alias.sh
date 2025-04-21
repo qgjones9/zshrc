@@ -21,4 +21,5 @@ alias gt='cd $(git rev-parse --show-toplevel)'
 alias grs='git reset --soft'
 
 
-alias snip='asciinema'                              # https://github.com/asciinema/asciinema
+# https://github.com/asciinema/asciinema
+alias snip='asciinema rec terminal.cast --overwrite'
