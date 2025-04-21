@@ -37,10 +37,13 @@ if [ -f "$ZSHRC_FILENAME" ]; then
   else
     echo "Creating symlink from '$ZSHRC_FILENAME' to '$TARGET_ZSHRC'."
     ln -s "$(pwd)/$ZSHRC_FILENAME" "$TARGET_ZSHRC"
-    echo "Symlink created successfully."
+    echo -e "Symlink created successfully.\n"
+    echo -e "Run the folllowing command to source your zshrc\n" 
+    echo -e "source $HOME/.zshrc\n"    
   fi
 else
   echo "Error: File '$ZSHRC_FILENAME' not found in the current directory."
+  exit 1
 fi
 
 echo ""
@@ -60,7 +63,6 @@ else
 fi
 
 # source .zshrc
-echo -e "Setup script completed.\n"
-echo -e "Run the folllowing command to source your zshrc\n" 
-echo "source $HOME/.zshrc"
+echo -e "Setup script completed."
+
 
